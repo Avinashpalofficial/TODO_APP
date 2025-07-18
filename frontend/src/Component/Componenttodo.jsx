@@ -1,4 +1,4 @@
-  export function Createtodo(){
+  export function Componenttodo(){
     return <div>
         <input type="text" placeholder="title" /> <br />
         <input type="text" placeholder="description" /> <br />
