@@ -2,8 +2,10 @@ const express = require('express')
 const { creaeTodo, updateTodo } = require('./type')
 const { todo } = require('./db')
 const app = express()
-
+const cors = require('cors')
 const port = 3000
+app.use(cors()),
+
 app.use(express.json())
 app.post('/todo', async(req,res)=>{
      const createpayload = req.body
@@ -34,7 +36,7 @@ app.put('/completed', async(req,res)=>{
     const updatePayload = req.body
     const  updateParse = updateTodo.safeParse(updatePayload)
     if(!updateParse.success){
-        res.status(400).json({
+        res.status(404).json({
             mesg:"you sent the wrong inputs"
         })
 
